@@ -20,6 +20,9 @@ for (i in 1:length(tickers)){
                 }
 }
 
+#Cleaning names of lags as they cause erros when I run other code.
+names(stocks.clean) <- gsub('-', '_', names(stocks.clean))
+
 #keeping only complete cases so modeling will work
 stocks.clean <- stocks.clean[complete.cases(stocks.clean),]
 
