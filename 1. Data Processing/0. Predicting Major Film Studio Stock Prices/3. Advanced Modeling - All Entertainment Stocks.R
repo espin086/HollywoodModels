@@ -19,7 +19,7 @@ for(i in 1:length(tickers)){
         
         glm.probs = predict(glm.fit, newdata = testing, type="response") #this code will predict on the training data, response outputs the probability 
         glm.probs[1:10]
-        print(hist(glm.probs)) #probablity that a given stock will go up
+        hist(glm.probs, col = "red", main = paste0("GLM Probability", "-", tickers[i] )) #probablity that a given stock will go up
         
         #turning the probability of up or down into 1 for up and 0 for down
         glm.pred = rep(0, nrow(testing))
