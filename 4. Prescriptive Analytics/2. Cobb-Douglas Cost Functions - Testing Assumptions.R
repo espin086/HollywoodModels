@@ -111,13 +111,3 @@ for( obs in 1:nrow( dat ) ) {
        dat$concaveCDHom[obs] <- semidefiniteness( hessianPart, positive = FALSE ) }
 sum(!dat$concaveCDHom) #Shows that concavity was not violated at any single observation
 
-############################################
-#Determining optimal versus observed cost shares
-
-#optimal cost shares versus actual with linear homogeneity imposed
-hist( dat$pProps * dat$qProps / dat$cost ) 
-lines(rep(chCap,2),c(0,100),lwd=3 )
-hist( dat$pLab * dat$qLab / dat$cost )
-lines(rep(chLab,2),c(0,100),lwd=3 ) 
-hist( dat$pMat * dat$qMat / dat$cost )
-lines(rep(chMat,2),c(0,100),lwd=3 )
