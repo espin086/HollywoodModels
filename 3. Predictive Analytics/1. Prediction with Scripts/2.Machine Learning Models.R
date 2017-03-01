@@ -9,7 +9,7 @@ set.seed(2015)
 setwd("~/Documents/HollywoodModels/0. Data/2. Clean Data")
 df <- read.csv("TDM_Scripts.csv")
 
-inBuild <- createDataPartition(y = df$target,p=0.7, list=FALSE)
+inBuild <- createDataPartition(y = df$target, p=0.7, list=FALSE)
 test <- df[-inBuild,]
 train <- df[inBuild,]
 
@@ -68,7 +68,7 @@ train$model.4 <- predict(model.4, train)
 
 #Training ensemble models on the training set with other model's predictors
 ensemble.1 <- train(target ~ ., 
-                    method="xgbTree", 
+                    method ="xgbTree", 
                     trControl = fitControl,
                     data = train,
                     tuneLength = tunelength)
